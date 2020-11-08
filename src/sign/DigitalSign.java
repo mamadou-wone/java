@@ -9,53 +9,56 @@ import java.util.Scanner;
 
 public class DigitalSign {
     public static void main(String args[]) throws Exception {
+        String chaine = "";
+        String fichier = "hach.txt";
+        // lecture du fichier texte
+        try {
+            InputStream ips = new FileInputStream(fichier);
+            InputStreamReader ipsr = new InputStreamReader(ips);
+            BufferedReader br = new BufferedReader(ipsr);
+            String ligne;
+            while ((ligne = br.readLine()) != null) {
+                // System.out.println(ligne);
+                chaine += ligne + "\n";
 
-        // ReadFile readFile = new ReadFile();
-        // readFile.read("mounass.txt");
-        // Accepting text from user
-        // Scanner sc = new Scanner(System.in);
-        // System.out.println("Enter some text");
-        // String msg = sc.nextLine();
+            }
 
-        // // Creating KeyPair generator object
-        // KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("DSA");
+            // Creating KeyPair generator object
+            KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("DSA");
 
-        // // Initializing the key pair generator
-        // keyPairGen.initialize(2048);
+            // Initializing the key pair generator
+            keyPairGen.initialize(2048);
 
-        // // Generate the pair of keys
-        // KeyPair pair = keyPairGen.generateKeyPair();
+            // Generate the pair of keys
+            KeyPair pair = keyPairGen.generateKeyPair();
 
-        // // Getting the private key from the key pair
-        // PrivateKey privKey = pair.getPrivate();
+            // Getting the private key from the key pair
+            PrivateKey privKey = pair.getPrivate();
 
-        // // Creating a Signature object
-        // Signature sign = Signature.getInstance("SHA256withDSA");
+            // Creating a Signature object
+            Signature sign = Signature.getInstance("SHA256withDSA");
 
-        // // Initialize the signature
-        // sign.initSign(privKey);
-        // byte[] bytes = "msg".getBytes();
+            // Initialize the signature
+            sign.initSign(privKey);
+            byte[] bytes = chaine.getBytes();
 
-        // // Adding data to the signature
-        // sign.update(bytes);
+            // Adding data to the signature
+            sign.update(bytes);
 
-        // // Calculating the signature
-        // byte[] signature = sign.sign();
-        // FileOutputStream sigfos = new FileOutputStream("sign.txt");
-        // sigfos.write(signature);
+            // Calculating the signature
+            byte[] signature = sign.sign();
+            FileOutputStream sigfos = new FileOutputStream("sign.txt");
+            sigfos.write(signature);
 
-        // sigfos.close();
+            sigfos.close();
 
-        // sign.initVerify(pair.getPublic());
-        // sign.update(bytes);
+            sign.initVerify(pair.getPublic());
+            sign.update(bytes);
 
-        // byte[] key = privKey.getEncoded();
-        // FileOutputStream keyfos = new FileOutputStream("mounass.txt");
-        // keyfos.write(key);
-
-        // keyfos.close();
-        // // Printing the signature
-        // System.out.println("Digital signature for given text: " + new String(signature, "UTF8"));
-        // System.out.println("Text Claire " + msg);
+            // Printing the signature
+            System.out.println("Digital signature for given text: " + new String(signature, "UTF8"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

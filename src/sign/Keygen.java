@@ -2,6 +2,7 @@ package sign;
 import java.io.*;
 import java.security.*;
 import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
 public class Keygen{
     KeyPairGenerator keyPairGenerator;
     Signature sign;
@@ -10,7 +11,7 @@ public class Keygen{
     PrivateKey privateKey;
     int keySize;
 
-    public void key() throws Exception{
-        keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+    public KeyGenerator getKey() {
+    return null;
     }
 }
