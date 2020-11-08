@@ -3,7 +3,7 @@ import java.io.*;
 public class ReadFile {
  public static void main(String[] args){
   String chaine="";
-  String fichier ="sig.txt";
+  String fichier ="sign.txt";
   
   //lecture du fichier texte 
   try{
@@ -12,13 +12,15 @@ public class ReadFile {
    BufferedReader br=new BufferedReader(ipsr);
    String ligne;
    while ((ligne=br.readLine())!=null){
-    System.out.println(ligne);
+    // System.out.println(ligne);
     chaine+=ligne+"\n";
+    // System.out.println(chaine);
    }
+  //  byte[] bytes = chaine.getBytes();
    br.close(); 
   }  
   catch (Exception e){
-   System.out.println(e.toString());
+   System.out.println("Text = " +e.toString());
   }
  
   //création ou ajout dans le fichier texte

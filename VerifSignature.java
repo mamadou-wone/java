@@ -9,7 +9,9 @@ public class VerifSignature {
    public static void main(String args[]) throws Exception{
       //Creating KeyPair generator object
       KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("DSA");
-	      
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter some text");
+      String msg = sc.nextLine();
       //Initializing the key pair generator
       keyPairGen.initialize(2048);
 	      
@@ -25,7 +27,7 @@ public class VerifSignature {
 
       //Initializing the signature
       sign.initSign(privKey);
-      byte[] bytes = "Hello how are you".getBytes();
+      byte[] bytes = "msg".getBytes();
       
 
       sign2.initSign(privKey);
@@ -44,7 +46,7 @@ public class VerifSignature {
       sign2.update(btes);
       
       //Verifying the signature
-      boolean bool = sign.verify(signature);
+      boolean bool = sign.verify(signature2);
     //   boolean bool2 = sign2.verify(signature);
       if(bool) {
          System.out.println("Signature verified");   

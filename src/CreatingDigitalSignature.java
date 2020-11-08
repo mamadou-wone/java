@@ -34,7 +34,7 @@ public class CreatingDigitalSignature {
          BufferedReader br = new BufferedReader(ipsr);
          String ligne;
          while ((ligne = br.readLine()) != null) {
-            System.out.println(ligne);
+            // System.out.println(ligne);
             chaine += ligne + "\n";
          }
          br.close();
