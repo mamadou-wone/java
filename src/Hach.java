@@ -22,6 +22,7 @@ public class Hach {
         for (int i = 0; i < byteData.length; i++) {
             sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
         }
+        // c4c8e2fe5b7ae9d699d17cbf7e64e1ec
         FileWriter myWriter = new FileWriter("hach.txt");
         myWriter.write(sb.toString());
         myWriter.close();

@@ -8,9 +8,8 @@ import java.util.Scanner;
 
 public class HachFile {
     public static void main(String[] args) throws Exception {
-        // String password = "123456789";
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter some text");
+        System.out.println("Enter le nom du fichier");
         String msg = sc.nextLine();
         MessageDigest md = MessageDigest.getInstance("MD5");
        
@@ -24,9 +23,10 @@ public class HachFile {
                 // System.out.println(ligne);
                 chaine += ligne + "\n";
             }
-            
+            // System.out.print(chaine);
         } catch (Exception e) {
-            // TODO: handle exception
+        
+            e.printStackTrace();
         }
         // System.out.println(chaine.getBytes());
         md.update(chaine.getBytes());
@@ -38,5 +38,8 @@ public class HachFile {
             sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
         }
         System.out.println("En format hexa : " + sb.toString());
+        FileWriter myWriter = new FileWriter("hach.txt");
+        myWriter.write(sb.toString());
+        myWriter.close();
     }
 }
