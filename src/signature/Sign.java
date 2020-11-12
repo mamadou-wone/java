@@ -36,7 +36,7 @@ public class Sign {
             FileWriter myWriter = new FileWriter("DSA.txt");
             myWriter.write(signature.toString());
             myWriter.close();
-
+// [B@1d16f93d
             System.out.println("La signature de l'emprunte est : "+signature);
         } catch (Exception e) {
             e.printStackTrace();
