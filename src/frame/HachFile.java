@@ -8,10 +8,10 @@ import java.io.InputStreamReader;
 import java.security.MessageDigest;
 
 public class HachFile {
-    
-    public void hachFile(String path)throws Exception{
+
+    public static void hachFile(String path) throws Exception {
         MessageDigest md = MessageDigest.getInstance("MD5");
-       
+
         String chaine = "";
         try {
             InputStream ips = new FileInputStream(path);
@@ -24,7 +24,7 @@ public class HachFile {
             }
             // System.out.print(chaine);
         } catch (Exception e) {
-        
+
             e.printStackTrace();
         }
         // System.out.println(chaine.getBytes());
@@ -37,11 +37,13 @@ public class HachFile {
             sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
         }
         System.out.println("En format hexa : " + sb.toString());
-        FileWriter myWriter = new FileWriter("C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/src/hach.txt");
+        FileWriter myWriter = new FileWriter(
+                "C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/src/frame/hach.txt");
         myWriter.write(sb.toString());
         myWriter.close();
     }
-    // public static void main(String[] args) throws Exception {
-       
-    // }
+
+    public static void main(String[] args) throws Exception {
+        hachFile("C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/src/frame/test.txt");
+    }
 }

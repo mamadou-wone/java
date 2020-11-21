@@ -40,8 +40,10 @@ public class NewFrame {
        try {
            HachFile hachFile = new HachFile();
            hachFile.hachFile(path);
-           Desktop.getDesktop().open(new java.io.File(path));
-       } catch (Exception e) {
+         //   Desktop.getDesktop().open(new java.io.File(path));
+         // SignFrame signFrame = new SignFrame();
+         new SignFrame().createWindow();
+      } catch (Exception e) {
             e.printStackTrace();
        }
    }
@@ -61,8 +63,9 @@ public class NewFrame {
             int option = fileChooser.showOpenDialog(frame);
             if(option == JFileChooser.APPROVE_OPTION){
                File file = fileChooser.getSelectedFile();
-               label.setText("File Selected: " + file.getAbsolutePath());
-                try {
+               // label.setText("File Selected: " + file.getAbsolutePath());
+               new SignFrame().createWindow();
+               try {
                     openFile(file.getAbsolutePath());
                 } catch (Exception ex) {
                    ex.printStackTrace();

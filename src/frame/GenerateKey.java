@@ -11,8 +11,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class GenerateKey {
     public static final String ALGORITHM = "DSA";
-    public static final String PRIVATE_KEY_FILE = "C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/src/privateKey.key";
-    public static final String PUBLIC_KEY_FILE = "C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/src/publicKey.key";
+    public static final String PRIVATE_KEY_FILE = "C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/src/frame/privateKey.key";
+    public static final String PUBLIC_KEY_FILE = "C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/src/frame/publicKey.key";
 
     /**
      * Generate key which contains a pair of private and public key using 1024
