@@ -53,13 +53,5 @@ public class SignFile extends KeyPairGen {
         sign.update(bytes);
         verif = sign.verify(signText(PATH));
         return verif;
-    }
-    // public static void main(String[] args) throws InvalidKeyException, NoSuchAlgorithmException, SignatureException,
-    //         IOException {
-    //     // System.out.println(getText(PATH));
-    //      //generateKeyPair();//[B@523884b2
-    //     // System.out.println(signText());
-    //     // System.out.println(verifSign());
-    // }
-
+    }  
 }
