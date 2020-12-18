@@ -7,7 +7,6 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.interfaces.DSAPrivateKey;
 import java.security.interfaces.DSAPublicKey;
-
 /**
  * KeyPairGen
  */
@@ -16,14 +15,6 @@ public class KeyPairGen {
     public static final String ALGORITHME = "DSA";
     public static final String PRIVATE_KEYS_FILE ="C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/digitalSign/privateKey.key";
     public static final String PUBLIC_KEY_FILE = "C:/Users/megaw/Desktop/Dev/JAVA/signature_numerique/signature/digitalSign/publicKey.key";
-  /**
-     * Generate key which contains a pair of private and public key using 1024
-     * bytes. Store the set of keys in Prvate.key and Public.key files.
-     * 
-     * @throws NoSuchAlgorithmException
-     * @throws IOException
-     * @throws FileNotFoundException
-     */
     public static void generateKeyPair(){
         try {
             final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHME);
